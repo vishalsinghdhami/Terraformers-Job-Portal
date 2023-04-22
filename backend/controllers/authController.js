@@ -1,3 +1,4 @@
+
 const User = require('../models/userModel');
 const ErrorResponse = require('../utils/errorResponse');
 
@@ -55,7 +56,10 @@ const sendTokenResponse = async (user, codeStatus, res) => {
     res
         .status(codeStatus)
         .cookie('token', token, { maxAge: 60 * 60 * 1000, httpOnly: true })
-        .json({ success: true, token, user })
+        .json({
+            success: true,
+            role: user.role
+        })
 }
 
 
@@ -67,6 +71,8 @@ exports.logout = (req, res, next) => {
         message: "logged out"
     })
 }
+
+
 // user profile
 exports.userProfile = async (req, res, next) => {
 
@@ -77,3 +83,7 @@ exports.userProfile = async (req, res, next) => {
         user
     })
 }
+
+
+
+
