@@ -11,6 +11,8 @@ var cors = require('cors');
 
 // import routes
 const authRoutes = require('./routes/authRoutes');
+const userRoutes = require('./routes/userRoutes');
+
 
 const cookieParser = require("cookie-parser");
 const errorHandler = require("./middleware/error");
@@ -41,7 +43,7 @@ app.use(cors());
 //     res.send("Hello from Node Js");
 // })
 app.use('/api', authRoutes);
-
+app.use('/api',userRoutes);
 // error middleware
 app.use(errorHandler);
 
