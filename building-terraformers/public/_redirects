@@ -1,0 +1,2 @@
+/api/* https://jobportalbackend-production-7987.up.railway.app/api/:splat 200
+/* /index.html 200 

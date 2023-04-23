@@ -10,8 +10,8 @@ const Header = () => {
             display: "flex",
             justifyContent: 'center',
             alignItems: 'center',
-            minHeight: 400,
-            backgroundImage: `url(${headerImage})`,
+            minHeight: 200,
+            //backgroundImage: `url(${headerImage})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundColor: theme.palette.secondary.main
