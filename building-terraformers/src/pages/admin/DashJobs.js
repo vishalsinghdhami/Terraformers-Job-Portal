@@ -35,7 +35,9 @@ const DashJobs = () => {
             toast.error(error.response.data.error);
         }
         window.location.reload(true);
-      
+        setTimeout(() => {
+            navigate('/admin/users');
+        }, 500)
     }
 
     const columns = [
