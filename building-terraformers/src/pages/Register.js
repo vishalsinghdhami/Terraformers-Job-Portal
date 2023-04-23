@@ -48,11 +48,21 @@ const Onboarding = () => {
     <>
        <Navbar/>
 
-        <div className="onboarding">
+        <div className="onboarding" style={{
+        fontFamily: '-apple-system',
+        fontSize: "1rem",
+        fontWeight: 1.5,
+        lineHeight: 1.5,
+        padding: "80px",
+        display:'flex',
+        flexDirection:'column',
+        justifyContent:'center',
+        maxWidth:'30vw',
+        marginLeft:"30vw"
+      }}>
             <h2>CREATE ACCOUNT</h2>
 
-            <div >
-                <section style={{display:"flex",flexDirection:"column"}}>
+              
                     <label  className="first_name">First Name</label>
                     <input
                         id="first_name"
@@ -95,9 +105,8 @@ const Onboarding = () => {
                     />
 
                     <button className='btn' onClick={handleSubmit}>Submit</button>
-                </section>
-
-            </div>
+                
+            
         </div>
         <Footer/>
     </>

@@ -65,6 +65,11 @@ exports.deleteJob = async (req, res, next) => {
         next(error);
     }
 }
+//updated job deadline
+exports.updatedJobsDeadline=async(req,res,next)=>{
+
+}
+
 
 //update job by id.
 exports.showJobs = async (req, res, next) => {

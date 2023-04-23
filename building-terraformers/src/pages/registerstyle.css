@@ -1,23 +1,24 @@
-.label{
+label{
     display: block;
     font-size: larger;
-    color: white;
+    color: #070606;
     padding: 5px;
+    min-width: 220px;
   }
    
-  .input{
+  input{
     font-size: larger;
     padding: 5px;
     margin: 2px;
-    
+    min-width: 220px;
   }
   .btn{
     color: white;
-    background-color:#3333c6;
+    background-color:#003366;
     border-radius: 5px;
     font-size: larger;
     display: block;
     padding: 5px;
     margin: 10px auto;
   }
-   
+ 
