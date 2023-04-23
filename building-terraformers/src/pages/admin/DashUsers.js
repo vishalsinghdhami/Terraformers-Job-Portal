@@ -6,9 +6,12 @@ import AddIcon from '@mui/icons-material/Add';
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment'
 import { allUserAction } from '../../redux/actions/userAction';
-
+import { toast } from "react-toastify";
+import axios from 'axios';
+import {  useNavigate } from 'react-router-dom';
+import { useTheme } from '@emotion/react';
 const DashUsers = () => {
-
+    const navigate = useNavigate();
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -19,9 +22,18 @@ const DashUsers = () => {
     const { users, loading } = useSelector(state => state.allUsers);
     let data = [];
     data = (users !== undefined && users.length > 0) ? users : []
-
-    const deleteUserById = (e, id) => {
+    const deleteUserById = async(e, id) => {
         console.log(id);
+        try {
+            const { data } = await axios.delete(`/api/admin/user/delete/${id}`);
+            toast.success("user deleted successfully!");
+        } catch (error) {
+            toast.error(error.response.data.error);
+        }
+        window.location.reload(true);
+        setTimeout(() => {
+            navigate('/admin/users');
+        }, 500)
     }
 
     const columns = [

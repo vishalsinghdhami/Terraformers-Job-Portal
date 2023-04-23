@@ -5,12 +5,14 @@ import { Link } from 'react-router-dom';
 import AddIcon from '@mui/icons-material/Add';
 import { useDispatch, useSelector } from 'react-redux';
 import { jobLoadAction } from '../../redux/actions/jobAction';
-
+import { toast } from "react-toastify";
+import axios from 'axios';
+import {  useNavigate } from 'react-router-dom';
 
 
 const DashJobs = () => {
 
-
+    const navigate = useNavigate();
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -24,8 +26,16 @@ const DashJobs = () => {
 
 
     //delete job by Id
-    const deleteJobById = (e, id) => {
+    const deleteJobById = async(e, id) => {
         console.log(id)
+        try {
+            const { data } = await axios.delete(`/api/job/delete/${id}`);
+            toast.success("job deleted successfully!");
+        } catch (error) {
+            toast.error(error.response.data.error);
+        }
+        window.location.reload(true);
+      
     }
 
     const columns = [
