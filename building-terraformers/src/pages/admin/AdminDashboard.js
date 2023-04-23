@@ -15,7 +15,7 @@ const AdminDashboard = () => {
                 <Typography variant="h4" sx={{ color: "white", pb: 3 }}>
                     Dashboard
                 </Typography>
-                <Stack
+                {/* <Stack
                     direction={{ xs: 'column', sm: 'row' }}
                     spacing={{ xs: 1, sm: 2, md: 4 }}
                 >
@@ -53,7 +53,7 @@ const AdminDashboard = () => {
                             legendToggle
                         />
                     </ChartComponent>
-                </Stack>
+                </Stack> */}
 
             </Box>
         </>

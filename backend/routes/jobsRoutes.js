@@ -17,7 +17,8 @@ router.put('/job/update/:job_id', isAuthenticated, isAdmin, updateJob);
 router.get('/jobs/show', showJobs);
 // /api/job/delete/job_id
 router.delete('/job/delete/:job_id',isAuthenticated, isAdmin,deleteJob);
-
+// /api/job/id
+//router.get('/jobs/updatedeadline',updatedJobsDeadline);
 
 
 module.exports = router;
