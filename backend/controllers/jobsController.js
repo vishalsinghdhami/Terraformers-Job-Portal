@@ -11,6 +11,9 @@ exports.createJob = async (req, res, next) => {
             salary: req.body.salary,
             location: req.body.location,
             jobType: req.body.jobType,
+            email:req.body.email,
+            contactNo:req.body.contactNo,
+            deadline:req.body.deadline,
             user: req.user.id
         });
         res.status(201).json({
@@ -49,7 +52,19 @@ exports.updateJob = async (req, res, next) => {
         next(error);
     }
 }
-
+//delete job by id
+exports.deleteJob = async (req, res, next) => {
+    try {
+        const job = await Job.findByIdAndRemove(req.params.job_id);
+        res.status(200).json({
+            success: true,
+            message:"job deleted"
+        })
+        next();
+    } catch (error) {
+        next(error);
+    }
+}
 
 //update job by id.
 exports.showJobs = async (req, res, next) => {
@@ -92,7 +107,10 @@ exports.showJobs = async (req, res, next) => {
     const count = await Job.find({ ...keyword, jobType: categ, location: locationFilter }).countDocuments();
 
     try {
-        const jobs = await Job.find({ ...keyword, jobType: categ, location: locationFilter }).sort({ createdAt: -1 }).populate('jobType', 'jobTypeName').populate('user', 'firstName').skip(pageSize * (page - 1)).limit(pageSize)
+        const jobs = await Job.find(
+
+       // )
+             { ...keyword, jobType: categ, location: locationFilter }).sort({ createdAt: -1 }).populate('jobType', 'jobTypeName').populate('user', 'firstName').skip(pageSize * (page - 1)).limit(pageSize)
         res.status(200).json({
             success: true,
             jobs,

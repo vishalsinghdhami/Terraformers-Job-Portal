@@ -7,6 +7,7 @@
     "@emotion/styled": "^11.10.6",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.12.1",
+    "@redux-devtools/extension": "^3.2.5",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -23,7 +24,10 @@
     "redux": "^4.2.1",
     "redux-thunk": "^2.4.2",
     "web-vitals": "^2.1.4",
-    "yup": "^1.1.1"
+    "yup": "^1.1.1",
+    "moment": "^2.29.4",
+    "react-google-charts": "^4.0.0",
+    "react-pro-sidebar": "^1.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -48,5 +52,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {
+    "@redux-devtools/extension": "^3.2.5"
+  },
+  "proxy": "http://localhost:9000"
 }

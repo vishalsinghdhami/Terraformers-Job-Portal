@@ -34,9 +34,15 @@ const jobSchema = new mongoose.Schema({
         ref: "JobType",
         required: true
     },
-    // deadLine:{
-    //     type: Number,
-    // },
+    deadline:{
+        type: String,
+    },
+    email:{
+       type:String,
+    },
+    contactNo:{
+       type:Number,
+    },
     user: {
         type: ObjectId,
         ref: "User",
