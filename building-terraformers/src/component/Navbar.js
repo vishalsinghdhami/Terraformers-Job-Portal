@@ -16,8 +16,26 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useTheme } from '@emotion/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { userLogoutAction } from '../redux/actions/userAction';
-
-const pages = ['Home', 'Log In'];
+import {
+    ALL_USER_LOAD_FAIL,
+    ALL_USER_LOAD_REQUEST,
+    ALL_USER_LOAD_SUCCESS,
+    USER_APPLY_JOB_FAIL,
+    USER_APPLY_JOB_REQUEST,
+    USER_APPLY_JOB_SUCCESS,
+    USER_LOAD_FAIL,
+    USER_LOAD_REQUEST,
+    USER_LOAD_SUCCESS,
+    USER_LOGOUT_FAIL,
+    USER_LOGOUT_REQUEST,
+    USER_LOGOUT_SUCCESS,
+    USER_SIGNIN_FAIL,
+    USER_SIGNIN_REQUEST,
+    USER_SIGNIN_SUCCESS
+} from '../redux/constants/userConstant';
+import { toast } from "react-toastify";
+import axios from 'axios';
+const pages = ['Home', 'Log In','Sign Up'];
 
 
 const Navbar = () => {
@@ -46,8 +64,23 @@ const Navbar = () => {
     };
 
     // log out user
-    const logOutUser = () => {
-        dispatch(userLogoutAction());
+    const logOutUser = async () => {
+        try {
+            const { data } = await axios.get("/api/logout");
+            localStorage.removeItem('userInfo');
+            dispatch({
+                type: USER_LOGOUT_SUCCESS,
+                payload: data
+            });
+            toast.success("Log out successfully!");
+        } catch (error) {
+            dispatch({
+                type: USER_LOGOUT_FAIL,
+                payload: error.response.data.error
+            });
+            toast.error(error.response.data.error);
+        }
+        // dispatch(userLogoutAction());
         window.location.reload(true);
         setTimeout(() => {
             navigate('/');
@@ -183,14 +216,21 @@ const Navbar = () => {
 
                                     <MenuItem onClick={handleCloseUserMenu}>
                                         <Typography textAlign="center"><Link style={{ textDecoration: "none", color: palette.primary.main }} to="/login">Log In</Link></Typography>
-                                    </MenuItem> :
-
+                                    </MenuItem> 
+                                    
+                                    
+                                    :
+                                    
                                     <MenuItem onClick={logOutUser}>
                                         <Typography style={{ textDecoration: "none", color: palette.primary.main }} textAlign="center">Log Out</Typography>
                                     </MenuItem>
                             }
-
-
+                        { !userInfo ?<MenuItem onClick={handleCloseUserMenu}>
+                                        <Typography textAlign="center"><Link style={{ textDecoration: "none", color: palette.primary.main }} to="/signup"> Sign Up</Link></Typography>
+                                    </MenuItem>:<MenuItem onClick={handleCloseUserMenu}>
+                                        <Typography textAlign="center"><Link style={{ textDecoration: "none", color: palette.primary.main }} to="/">Home</Link></Typography>
+                                    </MenuItem>
+                        }
                         </Menu>
                     </Box>
                 </Toolbar>

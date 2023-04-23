@@ -57,5 +57,5 @@
   "devDependencies": {
     "@redux-devtools/extension": "^3.2.5"
   },
-  "proxy": "https://jobportalbackend-production-7987.up.railway.app/"
+  "proxy": "http://localhost:9000/"
 }

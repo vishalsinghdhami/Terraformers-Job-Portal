@@ -8,6 +8,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ProSidebarProvider } from 'react-pro-sidebar';
 import LogIn from './pages/LogIn';
+import Onboarding from './pages/Register';
 import UserDashboard from './pages/user/UserDashboard';
 import UserRoute from './component/UserRoute';
 import AdminRoute from './component/AdminRoute';
@@ -52,6 +53,7 @@ const App = () => {
                             <Route path='/user/jobs' element={<UserRoute>< UserJobsHistoryHOC /></UserRoute>} />
                             <Route path='/user/info' element={<UserRoute>< UserInfoDashboardHOC /></UserRoute>} />
                             <Route path='*' element={<NotFound />} />
+                            <Route path={"/signup"} element={<Onboarding/>}></Route>
                         </Routes>
                     </BrowserRouter>
                 </ProSidebarProvider>

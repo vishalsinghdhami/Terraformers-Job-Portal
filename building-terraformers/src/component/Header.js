@@ -11,7 +11,7 @@ const Header = () => {
             justifyContent: 'center',
             alignItems: 'center',
             minHeight: 200,
-            //backgroundImage: `url(${headerImage})`,
+            backgroundImage: `url(${headerImage})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundColor: theme.palette.secondary.main

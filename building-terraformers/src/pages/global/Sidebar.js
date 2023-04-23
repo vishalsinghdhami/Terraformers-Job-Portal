@@ -14,7 +14,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { userLogoutAction, userProfileAction } from '../../redux/actions/userAction';
 import { useNavigate } from 'react-router-dom';
 import LoginIcon from '@mui/icons-material/Login';
+import {
 
+    USER_LOGOUT_FAIL,
+    USER_LOGOUT_SUCCESS
+} from '../../redux/constants/userConstant';
+import { toast } from "react-toastify";
+import axios from 'axios';
 
 const SidebarAdm = () => {
     const { userInfo } = useSelector(state => state.signIn);
@@ -28,8 +34,23 @@ const SidebarAdm = () => {
     }, []);
 
     //log out 
-    const logOut = () => {
-        dispatch(userLogoutAction());
+    const logOut = async() => {
+        try {
+            const { data } = await axios.get("/api/logout");
+            localStorage.removeItem('userInfo');
+            dispatch({
+                type: USER_LOGOUT_SUCCESS,
+                payload: data
+            });
+            toast.success("Log out successfully!");
+        } catch (error) {
+            dispatch({
+                type: USER_LOGOUT_FAIL,
+                payload: error.response.data.error
+            });
+            toast.error(error.response.data.error);
+        }
+        //dispatch(userLogoutAction());
         window.location.reload(true);
         setTimeout(() => {
             navigate('/');

@@ -72,11 +72,21 @@ const HeaderTop = () => {
                     <Typography
                         variant="h6"
                         noWrap
-                        component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+                        component="a"
+                        href="/"
+                        sx={{
+                            mr: 2,
+                            display: { xs: 'none', md: 'flex' },
+                            fontFamily: 'monospace',
+                            fontWeight: 700,
+                            letterSpacing: '.3rem',
+                            color: 'inherit',
+                            textDecoration: 'none',
+                        }}
                     >
-                        HR APP
+                        JOB PORTAL 
                     </Typography>
+                    <>Home</>
                     <Search>
                         <SearchIconWrapper>
                             <SearchIcon />
