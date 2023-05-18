@@ -86,7 +86,7 @@ const HeaderTop = () => {
                     >
                         JOB PORTAL 
                     </Typography>
-                    <>Home</>
+                  
                     <Search>
                         <SearchIconWrapper>
                             <SearchIcon />
