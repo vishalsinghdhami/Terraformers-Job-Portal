@@ -16,3 +16,5 @@
 ![Screenshot 2023-05-16 230722](https://github.com/vishalsinghdhami/Terraformers-Job-Portal/assets/83884792/31fb4ebe-c366-42cb-8f1d-c10a42f87814)
 ![Screenshot 2023-05-16 230742](https://github.com/vishalsinghdhami/Terraformers-Job-Portal/assets/83884792/9bd9e8d9-5834-4aea-a8df-6026d1d12f24)
 ![Screenshot 2023-05-16 230533](https://github.com/vishalsinghdhami/Terraformers-Job-Portal/assets/83884792/ec232d6c-abf3-4d25-8636-24b1470b5d56)
+![Screenshot (288)](https://github.com/vishalsinghdhami/Terraformers-Job-Portal/assets/83884792/949c7b90-70e7-453b-bc6e-7b017fa9f822)
+![Screenshot (289)](https://github.com/vishalsinghdhami/Terraformers-Job-Portal/assets/83884792/9d5dd9c1-3871-40e8-ac16-d662c4c52915)
